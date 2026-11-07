@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Тимур и Елизавета · 14 июня 2027</title>
+<meta name="description" content="Приглашение на свадьбу Тимура и Елизаветы. 14 июня 2027, вилла «Аркобалено», веранда «Амальфи».">
+<meta name="theme-color" content="#2E3D2A">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Тимур и Елизавета · 14 июня 2027">
+<meta property="og:description" content="Приглашаем вас на нашу свадьбу">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  /* Палитра концепта «The Enchanted Garden» + глубокий зелёный из референсов */
+  :root{
+    --forest:#2E3D2A;
+    --olive:#6F7F5F;
+    --sage:#A9B79C;
+    --mist:#E2E7D8;
+    --sky:#B8C9CC;
+    --cream:#F7F3EB;
+    --paper:#FCFAF5;
+    --wood:#A88A74;
+    --ink:#2B3326;
+    --script:'Great Vibes', cursive;
+    --serif:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{background:#C7CFBB;color:var(--ink);font:500 19px/1.6 var(--serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--wood);outline-offset:3px}
+
+  /* Mobile first: одна «лента» приглашения. На больших экранах она стоит по центру. */
+  .page{max-width:560px;margin:0 auto;background:var(--cream);position:relative;overflow:hidden;
+        box-shadow:0 0 0 1px rgba(46,61,42,.06),0 30px 80px -30px rgba(46,61,42,.45)}
+
+  section{position:relative;padding:72px 24px;text-align:center}
+  .script-title{font:400 64px/1.08 var(--script);color:var(--forest);margin-bottom:18px}
+  .script-title::first-letter{font-size:1.3em}
+  .caps{font:500 13px/1.5 var(--serif);letter-spacing:.24em;text-transform:uppercase;color:var(--olive)}
+  .text{max-width:30ch;margin:0 auto}
+  .text + .text{margin-top:12px}
+  .divider{display:block;width:150px;height:28px;margin:26px auto}
+
+  .branch{position:absolute;pointer-events:none;mix-blend-mode:multiply}
+  .tear{position:absolute;left:0;width:100%;height:22px;display:block;z-index:2}
+  .tear:not(.tear--flip){top:-21px}
+  .tear--flip{bottom:-21px;transform:scaleY(-1)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 28px;border-radius:999px;
+       border:1px solid currentColor;font:600 15px/1 var(--serif);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;cursor:pointer;
+       background:var(--forest);color:var(--paper);border-color:var(--forest);transition:background .2s,color .2s}
+  .btn:hover{background:var(--olive);border-color:var(--olive)}
+  .btn--light{background:var(--paper);color:var(--forest);border-color:var(--paper)}
+  .btn--light:hover{background:var(--sage);border-color:var(--sage);color:var(--forest)}
+
+  /* ---------- 1. Первый экран ---------- */
+  .hero{padding:96px 24px 64px;background:var(--paper);text-align:center;position:relative}
+  .branch--tl{width:270px;left:-44px;top:-26px}
+  .branch--tr{width:240px;right:-50px;top:-18px}
+  .hero__kicker{position:relative}
+  .names{font:400 76px/.92 var(--script);color:var(--forest);margin:18px 0 10px;position:relative}
+  .names span{display:block}
+  .names .amp{font-size:.62em;line-height:1.1;color:var(--wood)}
+  .hero__lead{font:italic 400 21px/1.45 var(--serif);max-width:24ch;margin:0 auto 30px;color:var(--olive)}
+
+  .arch{width:min(76%,340px);aspect-ratio:3/4;margin:0 auto;border-radius:999px 999px 6px 6px;overflow:hidden;position:relative;
+        border:6px solid var(--paper);outline:1px solid var(--sage);outline-offset:6px;box-shadow:0 24px 40px -24px rgba(46,61,42,.6)}
+  .arch img{width:100%;height:100%;object-fit:cover;object-position:52% 50%}
+  .arch__caption{margin-top:22px}
+
+  .date{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;max-width:330px;margin:34px auto 6px}
+  .date__side{font:500 13px/1.3 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--olive);
+              border-top:1px solid var(--sage);border-bottom:1px solid var(--sage);padding:8px 0}
+  .date__day{font:500 68px/1 var(--serif);color:var(--forest)}
+  .date__time{color:var(--olive)}
+
+  .count{margin-top:34px}
+  .count__title{font:400 34px/1 var(--script);color:var(--wood);margin-bottom:12px}
+  .count__grid{display:grid;grid-template-columns:repeat(4,1fr);max-width:340px;margin:0 auto}
+  .count__cell + .count__cell{border-left:1px solid var(--sage)}
+  .count__num{display:block;font:500 40px/1.1 var(--serif);color:var(--forest);font-variant-numeric:tabular-nums lining-nums}
+  .count__label{font:500 12px/1.4 var(--serif);letter-spacing:.18em;text-transform:uppercase;color:var(--olive)}
+
+  /* Сцена при загрузке: ветки и имена появляются один раз */
+  .hero .branch{animation:grow 1.6s cubic-bezier(.2,.7,.2,1) both}
+  .hero .branch--tr{animation-delay:.15s}
+  .names,.hero__lead{animation:rise 1.1s ease-out .35s both}
+  .hero__lead{animation-delay:.6s}
+  @keyframes grow{from{opacity:0;transform:scale(.85) rotate(-6deg);transform-origin:0 0}}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}}
+
+  /* ---------- 2. Место ---------- */
+  .place{background:var(--forest);color:var(--cream);padding-top:64px;padding-bottom:64px}
+  .place .script-title{color:var(--paper)}
+  .place .caps{color:var(--sage)}
+  .torn-photo{position:relative;margin:8px -4px 0;transform:rotate(-1.2deg)}
+  .torn-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;
+     -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 3 L6 1 L11 4 L17 0 L24 3 L31 1 L38 4 L45 1 L52 3 L60 0 L67 3 L74 1 L81 4 L88 1 L94 3 L100 1 L100 97 L94 99 L88 96 L81 100 L74 97 L67 99 L60 96 L52 100 L45 97 L38 99 L31 96 L24 100 L17 97 L11 99 L6 96 L0 99Z'/%3E%3C/svg%3E") center/100% 100%;
+             mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 3 L6 1 L11 4 L17 0 L24 3 L31 1 L38 4 L45 1 L52 3 L60 0 L67 3 L74 1 L81 4 L88 1 L94 3 L100 1 L100 97 L94 99 L88 96 L81 100 L74 97 L67 99 L60 96 L52 100 L45 97 L38 99 L31 96 L24 100 L17 97 L11 99 L6 96 L0 99Z'/%3E%3C/svg%3E") center/100% 100%}
+  .place__name{font:500 30px/1.2 var(--serif);margin:30px 0 4px}
+  .place__hall{font:400 40px/1.1 var(--script);color:var(--sage)}
+  .place__addr{max-width:28ch;margin:16px auto 0;color:#DCE2D2}
+  .place__time{display:inline-block;margin:24px 0 28px;padding:10px 22px;border:1px solid rgba(169,183,156,.5);border-radius:999px;font:500 17px/1.3 var(--serif)}
+  .place__time b{font-weight:600;color:var(--paper)}
+
+  .polaroid{background:var(--paper);padding:10px 10px 0;width:74%;margin:44px auto 0;transform:rotate(2.5deg);box-shadow:0 18px 30px -18px rgba(0,0,0,.6)}
+  .polaroid img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .polaroid figcaption{font:400 26px/1 var(--script);color:var(--olive);padding:10px 4px 12px}
+  .branch--place{width:170px;right:-30px;bottom:-24px;opacity:.9;mix-blend-mode:normal}
+
+  .cal{max-width:300px;margin:46px auto 0}
+  .cal__month{font:400 44px/1 var(--script);color:var(--paper);margin-bottom:12px}
+  .cal__grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px 0;font:500 16px/34px var(--serif);font-variant-numeric:lining-nums}
+  .cal__grid .wd{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);line-height:24px}
+  .cal__grid .mark{position:relative;color:var(--forest);font-weight:600}
+  .cal__grid .mark::before{content:"";position:absolute;inset:-1px 3px;z-index:-1;
+     background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath d='M12 21C5 16 1 12 1 7a5.5 5.5 0 0 1 11-1.5A5.5 5.5 0 0 1 23 7c0 5-4 9-11 14z' fill='%23E2E7D8'/%3E%3C/svg%3E") center/contain no-repeat}
+  .cal__grid .mark{isolation:isolate}
+
+  /* ---------- 3. Дресс-код ---------- */
+  .dress{background:var(--cream)}
+  .swatches{display:flex;justify-content:center;flex-wrap:wrap;gap:16px 14px;margin:30px auto 8px;max-width:340px}
+  .swatch{width:56px;text-align:center}
+  .swatch i{display:block;width:56px;height:56px;border-radius:50%;margin-bottom:8px;border:3px solid var(--paper);box-shadow:0 0 0 1px rgba(46,61,42,.18)}
+  .swatch small{font:500 13px/1.25 var(--serif);color:var(--olive)}
+  .note-card{display:inline-block;margin-top:30px;background:var(--sky);padding:14px 20px;max-width:300px;font:italic 500 18px/1.4 var(--serif);
+             transform:rotate(-1.5deg);box-shadow:0 10px 20px -14px rgba(46,61,42,.6)}
+
+  /* ---------- 4. Подарки ---------- */
+  .gifts{background:var(--mist)}
+  .gifts .envelope{width:116px;margin:4px auto 22px;transform:rotate(-5deg)}
+  .gifts .text{max-width:32ch}
+
+  /* ---------- 5. План дня ---------- */
+  .plan{background:var(--paper)}
+  .branch--plan{width:150px;left:-46px;top:40px;opacity:.85}
+  .timeline{list-style:none;max-width:340px;margin:30px auto 0;position:relative;text-align:left}
+  .timeline::before{content:"";position:absolute;left:73px;top:10px;bottom:10px;width:1px;background:var(--sage)}
+  .timeline li{display:grid;grid-template-columns:56px 34px 1fr;align-items:center;gap:0 0;padding:12px 0}
+  .timeline svg{width:40px;height:40px;stroke:var(--olive);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+  .timeline .dot{width:11px;height:11px;border-radius:50%;background:var(--paper);border:1.5px solid var(--olive);justify-self:center;position:relative;z-index:1}
+  .timeline li:first-child .dot{background:var(--olive)}
+  .timeline time{display:block;font:600 15px/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--wood)}
+  .timeline b{display:block;font:500 22px/1.25 var(--serif);color:var(--forest)}
+  .timeline span{display:block;font:italic 400 16px/1.35 var(--serif);color:var(--olive)}
+
+  /* ---------- 6. Анкета ---------- */
+  .rsvp{background:var(--forest);color:var(--cream)}
+  .rsvp .script-title{color:var(--paper)}
+  .rsvp .caps{color:var(--sage)}
+  .card{background:var(--paper);color:var(--ink);text-align:left;padding:30px 22px 32px;margin-top:28px;border-radius:4px;position:relative;
+        box-shadow:0 24px 40px -26px rgba(0,0,0,.7)}
+  .card::before{content:"";position:absolute;top:-14px;left:50%;width:46px;height:28px;margin-left:-23px;border-radius:6px 6px 10px 10px;
+        background:linear-gradient(#B9A08C,#8F7462);box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+  form{display:grid;gap:22px}
+  label.field,legend{display:block;font:600 14px/1.4 var(--serif);letter-spacing:.16em;text-transform:uppercase;color:var(--olive);margin-bottom:6px}
+  input[type=text],select,textarea{width:100%;padding:10px 0 8px;border:0;border-bottom:1px solid var(--sage);background:transparent;
+        font:500 21px/1.35 var(--serif);color:var(--ink);border-radius:0;-webkit-appearance:none;appearance:none}
+  select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%236F7F5F' stroke-width='1.5'/%3E%3C/svg%3E") right 4px center/12px no-repeat}
+  textarea{resize:vertical;min-height:64px}
+  input[type=text]:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--forest);border-bottom-width:2px;padding-bottom:7px}
+  fieldset{border:0}
+  .choices{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+  .choice{position:relative}
+  .choice input{position:absolute;opacity:0;inset:0;pointer-events:none}
+  .choice span{display:inline-flex;align-items:center;min-height:44px;padding:8px 18px;border:1px solid var(--sage);border-radius:999px;cursor:pointer;
+        background:var(--cream);font:500 18px/1.2 var(--serif);transition:background .15s,color .15s}
+  .choice input:checked + span{background:var(--forest);border-color:var(--forest);color:var(--paper)}
+  .choice input:focus-visible + span{outline:2px solid var(--wood);outline-offset:2px}
+  .oops{display:none;margin-top:14px;background:var(--sky);padding:12px 16px;font:italic 500 18px/1.4 var(--serif);transform:rotate(-1deg)}
+  .oops.is-on{display:block;animation:pop .35s ease-out}
+  @keyframes pop{from{opacity:0;transform:rotate(-4deg) scale(.96)}}
+  .form-error{color:#8A4A3A;font-style:italic}
+  .req{color:var(--wood)}
+  .is-invalid input[type=text]{border-bottom-color:#8A4A3A}
+  .is-invalid .choice span{border-color:#C9A79A}
+  .card .btn{width:100%}
+  .thanks{display:none;text-align:center;padding:10px 0}
+  .thanks b{display:block;font:400 60px/1.1 var(--script);font-weight:400;color:var(--forest)}
+  form.is-sent{display:none}
+  form.is-sent + .thanks{display:block}
+
+  /* ---------- 7. Ждём вас ---------- */
+  .glad{background:var(--paper);padding-bottom:120px}
+  .glad .arch{width:min(62%,280px);aspect-ratio:2/3}
+  .glad__title{font:400 70px/.95 var(--script);color:var(--forest);margin:34px 0 18px}
+  .glad__quote{font:italic 500 25px/1.35 var(--serif);color:var(--olive);max-width:20ch;margin:26px auto 0}
+  .sign{font:400 46px/1 var(--script);color:var(--wood);margin-top:26px}
+  .branch--bl{width:220px;left:-40px;bottom:-24px}
+  .branch--br{width:190px;right:-44px;bottom:-30px}
+
+  footer{background:var(--forest);color:var(--sage);text-align:center;padding:26px 24px 30px;font:500 13px/1.5 var(--serif);letter-spacing:.2em;text-transform:uppercase}
+
+  /* Большие экраны: лента по центру, вокруг шалфейный фон с ветками */
+  @media (min-width:600px){
+    body{padding:40px 0}
+    .page{border-radius:6px}
+    .names{font-size:92px}
+  }
+  @media (max-width:360px){
+    .names{font-size:64px}
+    .script-title{font-size:54px}
+    .date__day{font-size:58px}
+    .count__num{font-size:34px}
+    section{padding-left:18px;padding-right:18px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+<!--
+  Фото: сайт villa-arcobaleno.ru, веранда «Амальфи».
+  Перед публикацией скачайте их в папку img/ и замените адреса (поиск по "tildacdn").
+-->
+<div class="page">
+
+<!-- 1. Приглашение + отсчёт -->
+<header class="hero">
+  <svg class="branch branch--tl" viewBox="0 0 260 220" aria-hidden="true" focusable="false"><path d="M-10.0 10.0 Q90.0 40.0 230.0 190.0" fill="none" stroke="#6F7F5F" stroke-width="1.6" stroke-linecap="round"/><g transform="translate(6.3 15.6) rotate(72.3)"><path d="M0 0 C8.0 -19.7 30.3 -19.7 31.8 0 C30.3 19.7 8.0 19.7 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L28.7 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(25.2 23.7) rotate(-34.5)"><path d="M0 0 C7.1 -17.5 26.8 -17.5 28.2 0 C26.8 17.5 7.1 17.5 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L25.4 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(44.7 33.7) rotate(97.0)"><path d="M0 0 C7.7 -19.0 29.2 -19.0 30.7 0 C29.2 19.0 7.7 19.0 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L27.6 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(64.9 45.7) rotate(-25.3)"><path d="M0 0 C6.3 -15.5 23.8 -15.5 25.1 0 C23.8 15.5 6.3 15.5 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L22.5 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(85.7 59.6) rotate(95.3)"><path d="M0 0 C6.3 -15.5 23.8 -15.5 25.0 0 C23.8 15.5 6.3 15.5 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L22.5 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(107.2 75.5) rotate(-13.0)"><path d="M0 0 C6.8 -16.9 25.9 -16.9 27.3 0 C25.9 16.9 6.8 16.9 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L24.5 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(129.4 93.3) rotate(100.7)"><path d="M0 0 C6.1 -15.1 23.1 -15.1 24.3 0 C23.1 15.1 6.1 15.1 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L21.9 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(152.2 113.1) rotate(-14.8)"><path d="M0 0 C5.6 -13.8 21.2 -13.8 22.3 0 C21.2 13.8 5.6 13.8 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L20.1 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(175.6 134.8) rotate(110.6)"><path d="M0 0 C4.5 -11.1 17.0 -11.1 17.9 0 C17.0 11.1 4.5 11.1 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L16.1 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(199.7 158.5) rotate(-14.6)"><path d="M0 0 C4.5 -11.3 17.3 -11.3 18.2 0 C17.3 11.3 4.5 11.3 0 0Z" fill="#8C9C7E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L16.4 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(224.4 184.0) rotate(112.6)"><path d="M0 0 C4.0 -10.0 15.3 -10.0 16.1 0 C15.3 10.0 4.0 10.0 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L14.5 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><path d="M40.0 -10.0 Q60.0 80.0 120.0 150.0" fill="none" stroke="#6F7F5F" stroke-width="1.6" stroke-linecap="round"/><g transform="translate(43.5 4.3) rotate(135.9)"><path d="M0 0 C5.8 -4.3 15.5 -4.3 24.2 0 C15.5 4.3 5.8 4.3 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L22.3 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(53.1 35.4) rotate(10.2)"><path d="M0 0 C5.6 -4.1 15.1 -4.1 23.5 0 C15.1 4.1 5.6 4.1 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L21.6 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(65.3 65.3) rotate(126.8)"><path d="M0 0 C5.3 -3.9 14.1 -3.9 22.0 0 C14.1 3.9 5.3 3.9 0 0Z" fill="#B8C4AA" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L20.3 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(80.2 93.9) rotate(2.6)"><path d="M0 0 C4.8 -3.5 12.7 -3.5 19.9 0 C12.7 3.5 4.8 3.5 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L18.3 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(97.6 121.2) rotate(123.2)"><path d="M0 0 C3.9 -2.9 10.4 -2.9 16.2 0 C10.4 2.9 3.9 2.9 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L14.9 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(117.6 147.2) rotate(-15.5)"><path d="M0 0 C3.1 -2.3 8.3 -2.3 13.0 0 C8.3 2.3 3.1 2.3 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L12.0 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g></svg>
+  <svg class="branch branch--tr" viewBox="0 0 240 200" aria-hidden="true" focusable="false"><path d="M250.0 0.0 Q160.0 30.0 40.0 150.0" fill="none" stroke="#6F7F5F" stroke-width="1.6" stroke-linecap="round"/><g transform="translate(235.4 5.4) rotate(212.7)"><path d="M0 0 C6.6 -16.3 25.0 -16.3 26.3 0 C25.0 16.3 6.6 16.3 0 0Z" fill="#B8C4AA" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L23.6 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(216.6 13.7) rotate(90.1)"><path d="M0 0 C7.6 -18.9 29.0 -18.9 30.5 0 C29.0 18.9 7.6 18.9 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L27.4 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(197.2 23.9) rotate(200.3)"><path d="M0 0 C6.7 -16.7 25.6 -16.7 26.9 0 C25.6 16.7 6.7 16.7 0 0Z" fill="#8C9C7E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L24.2 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(177.3 35.8) rotate(83.0)"><path d="M0 0 C6.0 -14.9 22.9 -14.9 24.1 0 C22.9 14.9 6.0 14.9 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L21.7 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(156.7 49.5) rotate(202.2)"><path d="M0 0 C6.4 -15.8 24.3 -15.8 25.5 0 C24.3 15.8 6.4 15.8 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L23.0 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(135.5 65.1) rotate(82.0)"><path d="M0 0 C5.7 -14.2 21.7 -14.2 22.8 0 C21.7 14.2 5.7 14.2 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L20.5 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(113.7 82.4) rotate(196.1)"><path d="M0 0 C4.7 -11.8 18.0 -11.8 19.0 0 C18.0 11.8 4.7 11.8 0 0Z" fill="#B8C4AA" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L17.1 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(91.3 101.6) rotate(80.5)"><path d="M0 0 C4.6 -11.5 17.6 -11.5 18.5 0 C17.6 11.5 4.6 11.5 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L16.7 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(68.4 122.5) rotate(195.3)"><path d="M0 0 C4.6 -11.4 17.5 -11.4 18.4 0 C17.5 11.4 4.6 11.4 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L16.6 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(44.8 145.2) rotate(71.9)"><path d="M0 0 C3.3 -8.2 12.6 -8.2 13.3 0 C12.6 8.2 3.3 8.2 0 0Z" fill="#8C9C7E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L11.9 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><path d="M250.0 60.0 Q190.0 90.0 150.0 170.0" fill="none" stroke="#6F7F5F" stroke-width="1.6" stroke-linecap="round"/><g transform="translate(240.5 65.1) rotate(215.9)"><path d="M0 0 C6.6 -4.9 17.7 -4.9 27.6 0 C17.7 4.9 6.6 4.9 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L25.4 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(215.3 83.0) rotate(72.5)"><path d="M0 0 C5.4 -4.0 14.5 -4.0 22.7 0 C14.5 4.0 5.4 4.0 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L20.9 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(192.0 105.8) rotate(189.3)"><path d="M0 0 C3.9 -2.9 10.4 -2.9 16.2 0 C10.4 2.9 3.9 2.9 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L14.9 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(170.8 133.8) rotate(64.7)"><path d="M0 0 C3.8 -2.8 10.2 -2.8 15.9 0 C10.2 2.8 3.8 2.8 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L14.6 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(151.6 166.8) rotate(167.9)"><path d="M0 0 C3.2 -2.3 8.5 -2.3 13.3 0 C8.5 2.3 3.2 2.3 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L12.2 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g></svg>
+  <p class="caps hero__kicker">Приглашение на свадьбу</p>
+  <h1 class="names" aria-label="Тимур и Елизавета"><span>Тимур</span><span class="amp">&amp;</span><span>Елизавета</span></h1>
+  <p class="hero__lead">Мы женимся и будем счастливы разделить этот день с вами</p>
+
+  <figure class="arch">
+    <img src="https://thb.tildacdn.com/tild3230-6462-4831-b463-313661613361/-/resize/1100x/VD-147.jpg" alt="Вечерний сад веранды «Амальфи»: дорожка к месту церемонии и гирлянды огней" fetchpriority="high">
+  </figure>
+
+  <div class="date" aria-label="Понедельник, 14 июня 2027">
+    <span class="date__side">Понедельник</span>
+    <span class="date__day">14</span>
+    <span class="date__side">Июнь 2027</span>
+  </div>
+  <p class="date__time">сбор гостей в 15:00</p>
+
+  <div class="count">
+    <p class="count__title">До встречи осталось</p>
+    <div class="count__grid" role="timer" aria-live="off">
+      <div class="count__cell"><span class="count__num" data-d>—</span><span class="count__label" data-dl>дней</span></div>
+      <div class="count__cell"><span class="count__num" data-h>—</span><span class="count__label" data-hl>часов</span></div>
+      <div class="count__cell"><span class="count__num" data-m>—</span><span class="count__label" data-ml>минут</span></div>
+      <div class="count__cell"><span class="count__num" data-s>—</span><span class="count__label" data-sl>секунд</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- 2. Место проведения -->
+<section class="place" id="place">
+  <svg class="tear" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 24 L0.0 5.6 L9.8 13.2 L14.8 9.9 L21.4 11.8 L30.7 5.1 L34.0 14.0 L40.4 13.1 L43.4 9.3 L52.2 6.7 L62.8 14.8 L66.0 4.3 L73.3 15.3 L79.4 6.6 L85.8 4.3 L90.5 9.3 L97.5 6.8 L102.4 6.6 L109.0 7.5 L112.2 14.1 L119.7 11.7 L124.1 15.9 L134.0 5.5 L139.7 12.7 L148.4 15.2 L154.8 14.0 L163.1 7.6 L170.8 14.6 L180.6 10.1 L188.3 4.4 L193.2 13.6 L199.6 6.1 L206.9 12.4 L215.3 8.5 L221.8 10.1 L231.1 10.3 L237.2 9.9 L240.5 4.5 L249.1 15.8 L256.8 8.7 L261.2 10.0 L272.1 13.2 L279.4 14.3 L284.2 10.2 L294.8 10.9 L301.5 7.2 L308.9 15.5 L311.9 13.4 L321.5 14.6 L330.4 13.7 L337.6 10.7 L344.0 4.7 L354.0 10.8 L358.6 10.1 L365.4 8.3 L371.2 10.5 L379.2 11.3 L385.9 4.3 L390.7 6.1 L398.4 14.3 L400.0 13.6 L400 24Z" fill="var(--forest)"/></svg>
+  <h2 class="script-title">Место проведения</h2>
+  <p class="caps">Вилла «Аркобалено»</p>
+
+  <figure class="torn-photo">
+    <img src="img/amalfi-hall.jpg" alt="Веранда «Амальфи»: деревянный зал с панорамными окнами, люстрами и гирляндами, столы сервированы зелёными бокалами" loading="lazy">
+  </figure>
+
+  <p class="place__name">Веранда</p>
+  <p class="place__hall">«Амальфи»</p>
+  <p class="place__addr">Московская область, Мытищинский район, деревня Высоково, ул. Центральная, 21А</p>
+  <p class="place__time">Сбор гостей в <b>15:00</b></p>
+  <div><a class="btn btn--light" href="https://yandex.ru/maps/?text=%D0%92%D0%B8%D0%BB%D0%BB%D0%B0%20%D0%90%D1%80%D0%BA%D0%BE%D0%B1%D0%B0%D0%BB%D0%B5%D0%BD%D0%BE%2C%20%D0%B4.%20%D0%92%D1%8B%D1%81%D0%BE%D0%BA%D0%BE%D0%B2%D0%BE%2C%20%D1%83%D0%BB.%20%D0%A6%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%2C%2021%D0%90" target="_blank" rel="noopener">Открыть карту</a></div>
+
+  <figure class="polaroid">
+    <img src="https://thb.tildacdn.com/tild6664-3438-4636-a338-636463316265/-/resize/900x/VD-108.jpg" alt="Цветочная арка в саду у веранды" loading="lazy">
+    <figcaption>свой сад у веранды</figcaption>
+  </figure>
+
+  <div class="cal" aria-label="Календарь: июнь 2027, отмечено 14 июня">
+    <p class="cal__month">Июнь</p>
+    <div class="cal__grid" data-cal></div>
+  </div>
+  <svg class="branch branch--place" viewBox="0 0 220 160" aria-hidden="true" focusable="false"><path d="M230.0 150.0 Q140.0 140.0 20.0 40.0" fill="none" stroke="#6F7F5F" stroke-width="1.6" stroke-linecap="round"/><g transform="translate(215.4 147.8) rotate(-101.3)"><path d="M0 0 C6.2 -15.4 23.6 -15.4 24.8 0 C23.6 15.4 6.2 15.4 0 0Z" fill="#B8C4AA" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L22.4 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(194.2 142.8) rotate(-222.0)"><path d="M0 0 C5.3 -13.2 20.3 -13.2 21.4 0 C20.3 13.2 5.3 13.2 0 0Z" fill="#8C9C7E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L19.2 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(172.3 135.5) rotate(-108.3)"><path d="M0 0 C5.3 -13.1 20.0 -13.1 21.1 0 C20.0 13.1 5.3 13.1 0 0Z" fill="#B8C4AA" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L19.0 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(149.6 126.0) rotate(-209.2)"><path d="M0 0 C5.7 -14.1 21.6 -14.1 22.7 0 C21.6 14.1 5.7 14.1 0 0Z" fill="#B8C4AA" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L20.5 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(126.2 114.1) rotate(-88.4)"><path d="M0 0 C5.4 -13.4 20.5 -13.4 21.6 0 C20.5 13.4 5.4 13.4 0 0Z" fill="#B8C4AA" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L19.5 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(102.0 100.0) rotate(-199.5)"><path d="M0 0 C4.9 -12.2 18.7 -12.2 19.7 0 C18.7 12.2 4.9 12.2 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L17.8 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(77.0 83.6) rotate(-82.8)"><path d="M0 0 C3.7 -9.1 13.9 -9.1 14.7 0 C13.9 9.1 3.7 9.1 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L13.2 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(51.3 64.9) rotate(-203.8)"><path d="M0 0 C3.6 -9.0 13.7 -9.0 14.5 0 C13.7 9.0 3.6 9.0 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L13.0 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(24.8 44.0) rotate(-89.4)"><path d="M0 0 C3.1 -7.6 11.6 -7.6 12.2 0 C11.6 7.6 3.1 7.6 0 0Z" fill="#8C9C7E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L11.0 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g></svg>
+  <svg class="tear tear--flip" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 24 L0.0 15.5 L10.6 4.7 L14.3 14.0 L23.1 12.0 L28.6 11.3 L36.5 11.0 L40.7 9.2 L46.9 12.7 L57.8 15.4 L65.2 9.3 L70.3 4.4 L73.6 9.6 L79.1 8.6 L89.2 10.3 L96.7 6.8 L99.9 7.9 L104.0 10.1 L115.0 12.1 L119.5 14.7 L128.8 12.8 L139.1 13.2 L148.4 8.2 L159.2 15.5 L163.5 13.0 L172.3 9.5 L179.5 9.9 L189.9 10.0 L199.6 8.2 L209.6 14.8 L216.3 10.8 L226.7 12.7 L233.6 6.7 L239.2 12.4 L243.5 14.9 L248.6 14.9 L254.1 15.5 L262.8 10.1 L269.9 11.8 L277.6 7.7 L282.3 10.1 L292.7 11.5 L296.3 13.8 L305.1 14.9 L309.7 12.9 L313.2 11.8 L318.3 6.7 L328.3 5.3 L335.5 14.2 L340.5 6.5 L350.5 9.1 L359.3 4.4 L365.2 6.1 L373.5 5.0 L384.2 4.3 L393.0 4.3 L398.1 13.8 L400.0 6.2 L400 24Z" fill="var(--forest)"/></svg>
+</section>
+
+<!-- 3. Дресс-код -->
+<section class="dress">
+  <h2 class="script-title">Дресс-код</h2>
+  <p class="text">Нам будет приятно, если в ваших образах появятся оттенки нашего сада: шалфей, олива, небесно-голубой, молочный и дерево.</p>
+  <div class="swatches">
+    <div class="swatch"><i style="background:#A9B79C"></i><small>шалфей</small></div>
+    <div class="swatch"><i style="background:#6F7F5F"></i><small>олива</small></div>
+    <div class="swatch"><i style="background:#B8C9CC"></i><small>голубой</small></div>
+    <div class="swatch"><i style="background:#EEE8DE"></i><small>молочный</small></div>
+    <div class="swatch"><i style="background:#A88A74"></i><small>дерево</small></div>
+  </div>
+  <p class="note-card">Белый цвет в этот день оставим невесте.</p>
+</section>
+
+<!-- 4. Пожелания по подаркам -->
+<section class="gifts">
+  <svg class="tear" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 24 L0.0 6.9 L7.4 8.4 L15.2 11.5 L18.7 4.2 L28.4 7.1 L33.3 15.9 L40.0 14.0 L46.9 11.7 L51.1 11.6 L61.0 10.3 L69.9 12.1 L73.4 13.1 L81.2 7.6 L84.4 14.4 L91.2 12.6 L101.2 12.6 L111.6 8.7 L121.0 9.3 L131.5 14.5 L135.3 5.6 L140.0 15.6 L146.5 11.5 L151.9 10.1 L158.0 8.2 L165.7 11.0 L175.9 12.2 L186.3 14.3 L197.3 12.1 L201.6 14.3 L212.3 14.9 L219.8 12.6 L224.5 14.0 L232.1 7.4 L235.6 14.2 L246.6 5.1 L256.0 8.9 L260.2 7.5 L269.3 14.5 L272.7 11.4 L276.0 12.6 L281.7 14.6 L292.5 10.1 L303.5 7.7 L307.1 11.2 L310.4 6.4 L316.6 11.3 L320.9 4.5 L330.8 7.8 L341.5 14.8 L347.5 9.5 L354.7 11.7 L362.4 10.7 L370.4 15.3 L377.5 9.2 L386.2 6.9 L391.6 15.7 L398.8 10.6 L400.0 9.0 L400 24Z" fill="var(--mist)"/></svg>
+  <h2 class="script-title">Пожелания</h2>
+  <svg class="envelope" viewBox="0 0 116 84" aria-hidden="true">
+    <rect x="2" y="2" width="112" height="80" rx="3" fill="#FCFAF5" stroke="#6F7F5F" stroke-width="1.4"/>
+    <path d="M2 6 58 48 114 6" fill="none" stroke="#6F7F5F" stroke-width="1.4"/>
+    <path d="M2 80 46 40M114 80 70 40" fill="none" stroke="#A9B79C" stroke-width="1.2"/>
+    <circle cx="58" cy="48" r="11" fill="#A88A74"/>
+    <path d="M58 54c-5-3.4-7.6-6-7.6-9.2a3.8 3.8 0 0 1 7.6-1.4 3.8 3.8 0 0 1 7.6 1.4c0 3.2-2.6 5.8-7.6 9.2z" fill="#FCFAF5"/>
+  </svg>
+  <p class="text">Самый главный подарок для нас — ваше присутствие, улыбки и тёплые слова.</p>
+  <p class="text">Если захотите порадовать нас чем-то ещё, мы будем очень благодарны за подарок в конверте. Так мы сможем исполнить мечту, которую давно задумали вдвоём.</p>
+  <svg class="divider" viewBox="0 0 160 30" aria-hidden="true" focusable="false"><path d="M0.0 15.0 Q40.0 15.0 78.0 15.0" fill="none" stroke="#6F7F5F" stroke-width="1.6" stroke-linecap="round"/><g transform="translate(6.4 15.0) rotate(51.7)"><path d="M0 0 C3.7 -2.7 10.0 -2.7 15.6 0 C10.0 2.7 3.7 2.7 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L14.3 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(24.2 15.0) rotate(-61.0)"><path d="M0 0 C2.7 -2.0 7.3 -2.0 11.3 0 C7.3 2.0 2.7 2.0 0 0Z" fill="#B8C4AA" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L10.4 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(41.8 15.0) rotate(51.2)"><path d="M0 0 C2.9 -2.1 7.7 -2.1 12.0 0 C7.7 2.1 2.9 2.1 0 0Z" fill="#8C9C7E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L11.0 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(59.3 15.0) rotate(-62.5)"><path d="M0 0 C2.5 -1.8 6.7 -1.8 10.4 0 C6.7 1.8 2.5 1.8 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L9.6 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(76.5 15.0) rotate(60.1)"><path d="M0 0 C1.6 -1.2 4.4 -1.2 6.8 0 C4.4 1.2 1.6 1.2 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L6.3 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><path d="M160.0 15.0 Q120.0 15.0 82.0 15.0" fill="none" stroke="#6F7F5F" stroke-width="1.6" stroke-linecap="round"/><g transform="translate(153.6 15.0) rotate(249.4)"><path d="M0 0 C3.1 -2.3 8.2 -2.3 12.9 0 C8.2 2.3 3.1 2.3 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L11.8 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(135.8 15.0) rotate(111.5)"><path d="M0 0 C3.1 -2.3 8.3 -2.3 13.0 0 C8.3 2.3 3.1 2.3 0 0Z" fill="#B8C4AA" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L12.0 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(118.2 15.0) rotate(232.3)"><path d="M0 0 C3.0 -2.2 8.0 -2.2 12.5 0 C8.0 2.2 3.0 2.2 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L11.5 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(100.7 15.0) rotate(127.3)"><path d="M0 0 C2.0 -1.4 5.2 -1.4 8.2 0 C5.2 1.4 2.0 1.4 0 0Z" fill="#8C9C7E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L7.5 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(83.5 15.0) rotate(240.9)"><path d="M0 0 C1.7 -1.2 4.5 -1.2 7.0 0 C4.5 1.2 1.7 1.2 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L6.4 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><circle cx="80" cy="15" r="2.6" fill="#A88A74"/></svg>
+  <svg class="tear tear--flip" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 24 L0.0 6.8 L3.8 8.8 L8.1 4.8 L14.3 15.0 L23.7 13.2 L28.5 10.4 L33.7 6.1 L37.5 6.6 L47.9 13.9 L57.4 13.6 L61.9 7.7 L70.0 12.8 L79.8 14.6 L83.5 11.3 L91.9 10.1 L96.3 9.7 L100.0 15.2 L109.9 10.6 L115.3 14.9 L122.9 14.6 L132.7 10.1 L139.0 11.2 L145.4 5.9 L150.9 13.8 L154.2 4.6 L162.2 7.4 L169.5 9.7 L175.3 16.0 L179.8 9.0 L184.5 11.6 L189.7 8.3 L198.6 7.8 L206.1 14.9 L209.9 4.7 L214.7 13.2 L222.7 6.8 L228.3 6.1 L235.0 4.5 L243.6 14.8 L254.2 12.8 L264.9 4.2 L270.2 15.6 L279.4 8.9 L289.9 11.4 L299.5 7.5 L304.0 9.3 L308.1 8.6 L318.8 8.0 L321.9 4.5 L326.2 13.4 L332.1 7.5 L335.9 15.8 L342.3 6.5 L345.8 4.7 L350.1 12.1 L354.3 4.5 L361.3 7.0 L372.2 5.5 L379.5 13.3 L385.7 15.9 L392.6 6.9 L398.8 4.4 L400.0 7.0 L400 24Z" fill="var(--mist)"/></svg>
+</section>
+
+<!-- 5. План дня -->
+<section class="plan">
+  <svg class="branch branch--plan" viewBox="0 0 200 260" aria-hidden="true" focusable="false"><path d="M-10.0 250.0 Q10.0 140.0 120.0 10.0" fill="none" stroke="#6F7F5F" stroke-width="1.6" stroke-linecap="round"/><g transform="translate(-6.2 232.3) rotate(-15.8)"><path d="M0 0 C7.4 -5.4 19.7 -5.4 30.8 0 C19.7 5.4 7.4 5.4 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L28.3 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(0.1 209.8) rotate(-131.7)"><path d="M0 0 C7.6 -5.6 20.2 -5.6 31.6 0 C20.2 5.6 7.6 5.6 0 0Z" fill="#8C9C7E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L29.1 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(8.3 186.8) rotate(-4.4)"><path d="M0 0 C7.1 -5.2 18.9 -5.2 29.5 0 C18.9 5.2 7.1 5.2 0 0Z" fill="#B8C4AA" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L27.2 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(18.2 163.5) rotate(-130.4)"><path d="M0 0 C7.1 -5.2 18.8 -5.2 29.4 0 C18.8 5.2 7.1 5.2 0 0Z" fill="#8C9C7E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L27.0 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(29.9 139.8) rotate(-5.4)"><path d="M0 0 C5.8 -4.3 15.5 -4.3 24.2 0 C15.5 4.3 5.8 4.3 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L22.3 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(43.5 115.7) rotate(-116.1)"><path d="M0 0 C5.5 -4.1 14.8 -4.1 23.1 0 C14.8 4.1 5.5 4.1 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L21.2 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(58.8 91.2) rotate(-4.1)"><path d="M0 0 C4.6 -3.4 12.2 -3.4 19.0 0 C12.2 3.4 4.6 3.4 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L17.5 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(76.0 66.2) rotate(-115.5)"><path d="M0 0 C4.3 -3.1 11.3 -3.1 17.7 0 C11.3 3.1 4.3 3.1 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L16.3 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(94.9 40.9) rotate(-0.8)"><path d="M0 0 C3.8 -2.8 10.0 -2.8 15.6 0 C10.0 2.8 3.8 2.8 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L14.4 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(115.6 15.2) rotate(-111.6)"><path d="M0 0 C4.3 -3.2 11.6 -3.2 18.1 0 C11.6 3.2 4.3 3.2 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L16.6 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g></svg>
+  <h2 class="script-title">План дня</h2>
+  <p class="caps">Как пройдёт наш праздник</p>
+  <ol class="timeline">
+    <li>
+      <svg viewBox="0 0 40 40"><path d="M14 6h8l-1 10a3 3 0 0 1-6 0z"/><path d="M18 19v13M14 32h8"/><path d="M26 10h8l-1 10a3 3 0 0 1-6 0z" transform="rotate(14 30 16)"/><path d="M29 23v11M25 34h8" transform="rotate(14 29 28)"/></svg>
+      <i class="dot"></i><div><time>15:00</time><b>Сбор гостей</b><span>фуршет, объятия и первые фото</span></div>
+    </li>
+    <li>
+      <svg viewBox="0 0 40 40"><circle cx="15" cy="23" r="8"/><circle cx="25" cy="23" r="8"/><path d="M22 9l3-3 3 3-3 4z"/></svg>
+      <i class="dot"></i><div><time>Затем</time><b>Церемония</b><span>то самое «да» в саду</span></div>
+    </li>
+    <li>
+      <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="10"/><circle cx="20" cy="20" r="6"/><path d="M5 8v8a2 2 0 0 0 2 2v14M5 8v6M8 8v6M35 8c-3 0-4 4-4 10h4v14"/></svg>
+      <i class="dot"></i><div><time>После</time><b>Праздничный ужин</b><span>тосты, истории и смех</span></div>
+    </li>
+    <li>
+      <svg viewBox="0 0 40 40"><path d="M14 30V12l16-4v18"/><circle cx="11" cy="30" r="3.5"/><circle cx="27" cy="26" r="3.5"/><path d="M14 17l16-4"/></svg>
+      <i class="dot"></i><div><time>Вечером</time><b>Первый танец</b><span>и танцпол для всех</span></div>
+    </li>
+    <li>
+      <svg viewBox="0 0 40 40"><path d="M8 34h24M10 34V24h20v10M13 24v-7h14v7"/><path d="M20 17v-5"/><path d="M20 12c-1.5-1.5-1.5-3.5 0-5 1.5 1.5 1.5 3.5 0 5z"/><path d="M10 29c3 2 6-2 10 0s7 2 10 0"/></svg>
+      <i class="dot"></i><div><time>Ближе к ночи</time><b>Свадебный торт</b><span>самая сладкая часть вечера</span></div>
+    </li>
+    <li>
+      <svg viewBox="0 0 40 40"><path d="M20 6v6M20 28v6M6 20h6M28 20h6M10 10l4 4M26 26l4 4M30 10l-4 4M14 26l-4 4"/><circle cx="20" cy="20" r="3"/></svg>
+      <i class="dot"></i><div><time>До последнего гостя</time><b>Вечеринка</b><span>пока не устанут ноги</span></div>
+    </li>
+  </ol>
+</section>
+
+<!-- 6. Анкета -->
+<section class="rsvp" id="rsvp">
+  <svg class="tear" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 24 L0.0 11.5 L8.9 13.5 L19.5 12.9 L29.9 4.3 L36.6 15.3 L44.8 14.8 L48.7 9.6 L53.6 10.5 L61.2 4.2 L66.0 7.4 L76.3 13.2 L80.6 13.6 L84.7 11.4 L88.7 4.0 L98.7 6.5 L103.4 15.8 L113.4 7.5 L124.1 10.5 L132.5 6.5 L143.0 12.3 L153.8 14.7 L159.1 8.3 L163.5 5.7 L167.0 7.6 L174.8 4.0 L183.2 8.1 L188.7 13.8 L195.6 7.8 L202.4 12.5 L205.9 15.7 L209.1 13.0 L218.8 4.2 L228.1 8.4 L235.7 4.1 L239.1 6.2 L249.8 6.4 L258.8 15.2 L269.3 8.1 L275.2 10.3 L284.4 5.3 L293.4 13.6 L303.2 4.4 L313.8 5.1 L319.5 11.3 L329.9 8.1 L340.3 10.5 L345.8 7.8 L350.2 4.9 L354.4 12.3 L365.4 5.9 L368.8 15.8 L376.0 8.9 L380.9 11.1 L390.5 9.5 L396.9 4.7 L400.0 4.4 L400 24Z" fill="var(--forest)"/></svg>
+  <h2 class="script-title">Анкета гостя</h2>
+  <p class="caps">Пожалуйста, ответьте до 1 мая 2027</p>
+
+  <div class="card">
+    <form data-rsvp novalidate>
+      <div><label class="field" for="name">Имя и фамилия <span class="req" aria-hidden="true">*</span></label><input id="name" name="name" type="text" required autocomplete="name"></div>
+      <fieldset>
+        <legend>Сможете прийти? <span class="req" aria-hidden="true">*</span></legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="attend" value="Да, приду" required><span>Да, с радостью</span></label>
+          <label class="choice"><input type="radio" name="attend" value="Не смогу"><span>К сожалению, нет</span></label>
+        </div>
+        <p class="oops" data-oops>Стоп! Это не по плану. Но мы всё понимаем — спасибо, что предупредили.</p>
+      </fieldset>
+      <div data-if-yes>
+        <label class="field" for="guests">Сколько вас будет?</label>
+        <select id="guests" name="guests">
+          <option value="1">Только я</option>
+          <option value="2">Нас двое</option>
+          <option value="3">Нас трое</option>
+          <option value="4">Нас четверо</option>
+        </select>
+      </div>
+      <div data-if-yes><label class="field" for="plus">Имена тех, кто будет с вами</label><input id="plus" name="plus" type="text"></div>
+      <fieldset data-if-yes>
+        <legend>Что предпочитаете пить?</legend>
+        <div class="choices">
+          <label class="choice"><input type="checkbox" name="drinks" value="Вино"><span>Вино</span></label>
+          <label class="choice"><input type="checkbox" name="drinks" value="Шампанское"><span>Шампанское</span></label>
+          <label class="choice"><input type="checkbox" name="drinks" value="Крепкое"><span>Что-то крепче</span></label>
+          <label class="choice"><input type="checkbox" name="drinks" value="Безалкогольное"><span>Без алкоголя</span></label>
+        </div>
+      </fieldset>
+      <div><label class="field" for="comment">Пожелания или аллергии</label><textarea id="comment" name="comment" rows="2"></textarea></div>
+      <p class="form-error" data-error hidden>Напишите, пожалуйста, имя и отметьте, сможете ли прийти.</p>
+      <button class="btn" type="submit">Отправить ответ</button>
+    </form>
+    <div class="thanks" role="status"><b>Спасибо!</b><p>Ответ у нас. До встречи 14 июня.</p></div>
+  </div>
+
+  <svg class="tear tear--flip" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 24 L0.0 13.5 L9.6 9.8 L14.7 4.0 L23.0 9.6 L32.0 8.5 L41.2 7.3 L50.6 12.8 L56.9 10.5 L65.4 6.3 L72.8 13.7 L77.9 13.6 L86.4 14.1 L92.1 5.1 L101.5 13.7 L108.1 5.1 L112.7 11.6 L118.0 15.4 L125.7 6.4 L133.9 8.3 L144.4 14.9 L151.5 11.7 L160.1 13.7 L170.9 4.3 L176.8 11.2 L182.2 11.1 L186.0 14.6 L193.2 5.4 L201.5 7.7 L206.0 9.8 L210.1 6.5 L220.1 12.4 L223.2 13.3 L226.3 8.0 L236.5 11.4 L242.0 8.5 L248.1 5.5 L259.1 4.6 L265.5 13.0 L271.7 15.8 L276.6 15.8 L286.8 12.0 L296.9 9.4 L306.5 13.6 L313.7 9.7 L322.3 8.9 L326.0 13.0 L331.1 9.9 L340.4 6.1 L343.6 5.5 L351.3 8.3 L356.3 9.4 L366.8 7.1 L373.0 14.6 L380.9 7.2 L387.7 9.7 L391.9 8.5 L397.3 13.7 L400.0 11.9 L400 24Z" fill="var(--forest)"/></svg>
+</section>
+
+<!-- 7. Ждём вас -->
+<section class="glad">
+  <figure class="arch">
+    <img src="https://thb.tildacdn.com/tild3833-6161-4061-b134-633866383436/-/resize/800x/VD-101.jpg" alt="Сервировка стола: зелёные бокалы и салфетки цвета шалфея" loading="lazy">
+  </figure>
+  <h2 class="glad__title">Мы очень ждём вас</h2>
+  <p class="text">Этот день не будет идеальным по сценарию. Он будет настоящим, потому что рядом будут самые близкие. Без вас он просто не получится таким, каким мы его придумали.</p>
+  <p class="glad__quote">«Не по сценарию. Зато по любви».</p>
+  <p class="sign">Тимур и Елизавета</p>
+  <svg class="branch branch--bl" viewBox="0 0 260 200" aria-hidden="true" focusable="false"><path d="M-10.0 200.0 Q80.0 170.0 220.0 30.0" fill="none" stroke="#6F7F5F" stroke-width="1.6" stroke-linecap="round"/><g transform="translate(4.7 194.5) rotate(39.1)"><path d="M0 0 C8.6 -21.3 32.7 -21.3 34.4 0 C32.7 21.3 8.6 21.3 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L31.0 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(22.0 186.6) rotate(-95.3)"><path d="M0 0 C7.7 -19.1 29.3 -19.1 30.9 0 C29.3 19.1 7.7 19.1 0 0Z" fill="#8C9C7E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L27.8 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(40.2 177.0) rotate(21.1)"><path d="M0 0 C6.8 -16.9 25.9 -16.9 27.3 0 C25.9 16.9 6.8 16.9 0 0Z" fill="#B8C4AA" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L24.6 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(59.1 165.5) rotate(-90.8)"><path d="M0 0 C7.5 -18.7 28.6 -18.7 30.1 0 C28.6 18.7 7.5 18.7 0 0Z" fill="#B8C4AA" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L27.1 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(78.9 152.3) rotate(16.2)"><path d="M0 0 C6.0 -14.9 22.8 -14.9 24.0 0 C22.8 14.9 6.0 14.9 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L21.6 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(99.4 137.3) rotate(-95.7)"><path d="M0 0 C6.3 -15.6 23.9 -15.6 25.1 0 C23.9 15.6 6.3 15.6 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L22.6 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(120.8 120.5) rotate(13.5)"><path d="M0 0 C5.6 -13.8 21.1 -13.8 22.2 0 C21.1 13.8 5.6 13.8 0 0Z" fill="#8C9C7E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L20.0 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(143.0 101.9) rotate(-103.9)"><path d="M0 0 C5.0 -12.3 18.9 -12.3 19.8 0 C18.9 12.3 5.0 12.3 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L17.9 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(166.0 81.6) rotate(12.3)"><path d="M0 0 C5.1 -12.6 19.3 -12.6 20.3 0 C19.3 12.6 5.1 12.6 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L18.3 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(189.8 59.5) rotate(-97.3)"><path d="M0 0 C4.6 -11.4 17.4 -11.4 18.4 0 C17.4 11.4 4.6 11.4 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L16.5 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(214.4 35.6) rotate(11.1)"><path d="M0 0 C4.4 -10.9 16.7 -10.9 17.6 0 C16.7 10.9 4.4 10.9 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L15.9 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><path d="M10.0 210.0 Q60.0 140.0 70.0 60.0" fill="none" stroke="#6F7F5F" stroke-width="1.6" stroke-linecap="round"/><g transform="translate(17.7 198.7) rotate(8.6)"><path d="M0 0 C6.5 -4.8 17.4 -4.8 27.2 0 C17.4 4.8 6.5 4.8 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L25.0 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(33.3 172.9) rotate(-122.9)"><path d="M0 0 C6.0 -4.4 16.1 -4.4 25.2 0 C16.1 4.4 6.0 4.4 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L23.2 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(46.3 146.5) rotate(-0.5)"><path d="M0 0 C5.6 -4.1 15.0 -4.1 23.4 0 C15.0 4.1 5.6 4.1 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L21.5 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(56.6 119.4) rotate(-130.5)"><path d="M0 0 C4.2 -3.1 11.2 -3.1 17.5 0 C11.2 3.1 4.2 3.1 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L16.1 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(64.4 91.6) rotate(-11.6)"><path d="M0 0 C4.4 -3.2 11.8 -3.2 18.4 0 C11.8 3.2 4.4 3.2 0 0Z" fill="#B8C4AA" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L16.9 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(69.6 63.2) rotate(-145.5)"><path d="M0 0 C3.1 -2.3 8.2 -2.3 12.9 0 C8.2 2.3 3.1 2.3 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L11.8 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g></svg>
+  <svg class="branch branch--br" viewBox="0 0 240 200" aria-hidden="true" focusable="false"><path d="M250.0 200.0 Q170.0 160.0 50.0 40.0" fill="none" stroke="#6F7F5F" stroke-width="1.6" stroke-linecap="round"/><g transform="translate(236.9 193.1) rotate(-82.2)"><path d="M0 0 C7.3 -18.0 27.6 -18.0 29.0 0 C27.6 18.0 7.3 18.0 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L26.1 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(219.9 183.0) rotate(-204.1)"><path d="M0 0 C7.8 -19.3 29.5 -19.3 31.1 0 C29.5 19.3 7.8 19.3 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L28.0 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(202.1 171.3) rotate(-87.3)"><path d="M0 0 C5.9 -14.6 22.4 -14.6 23.5 0 C22.4 14.6 5.9 14.6 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L21.2 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(183.4 158.0) rotate(-205.2)"><path d="M0 0 C5.7 -14.1 21.6 -14.1 22.7 0 C21.6 14.1 5.7 14.1 0 0Z" fill="#8C9C7E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L20.5 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(164.0 143.2) rotate(-83.1)"><path d="M0 0 C6.2 -15.5 23.7 -15.5 25.0 0 C23.7 15.5 6.2 15.5 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L22.5 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(143.7 126.7) rotate(-189.9)"><path d="M0 0 C5.8 -14.3 21.9 -14.3 23.0 0 C21.9 14.3 5.8 14.3 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L20.7 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(122.7 108.6) rotate(-73.4)"><path d="M0 0 C5.5 -13.5 20.8 -13.5 21.9 0 C20.8 13.5 5.5 13.5 0 0Z" fill="#93A486" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L19.7 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(100.9 88.9) rotate(-189.3)"><path d="M0 0 C4.5 -11.2 17.2 -11.2 18.1 0 C17.2 11.2 4.5 11.2 0 0Z" fill="#7A8B6E" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L16.3 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(78.2 67.6) rotate(-67.4)"><path d="M0 0 C3.7 -9.2 14.1 -9.2 14.8 0 C14.1 9.2 3.7 9.2 0 0Z" fill="#B8C4AA" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L13.3 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g><g transform="translate(54.8 44.8) rotate(-199.5)"><path d="M0 0 C3.7 -9.2 14.1 -9.2 14.8 0 C14.1 9.2 3.7 9.2 0 0Z" fill="#A9B79C" fill-opacity=".82" stroke="#5F6F52" stroke-opacity=".55" stroke-width=".8"/><path d="M2 0 L13.3 0" stroke="#5F6F52" stroke-opacity=".4" stroke-width=".6"/></g></svg>
+</section>
+
+<footer>14 · 06 · 2027</footer>
+</div>
+
+<script>
+/* ===== Обратный отсчёт (время московское) ===== */
+(function(){
+  var target = new Date('2027-06-14T15:00:00+03:00').getTime();
+  var q = function(s){ return document.querySelector(s); };
+  var forms = { d:['день','дня','дней'], h:['час','часа','часов'], m:['минута','минуты','минут'], s:['секунда','секунды','секунд'] };
+  function plural(n,f){ var a=n%100,b=n%10; if(a>10&&a<20) return f[2]; if(b===1) return f[0]; if(b>1&&b<5) return f[1]; return f[2]; }
+  function tick(){
+    var diff = Math.max(0, target - Date.now());
+    var v = { d:Math.floor(diff/864e5), h:Math.floor(diff/36e5)%24, m:Math.floor(diff/6e4)%60, s:Math.floor(diff/1e3)%60 };
+    for (var k in v){ q('[data-'+k+']').textContent = v[k]; q('[data-'+k+'l]').textContent = plural(v[k], forms[k]); }
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+/* ===== Календарь: июнь 2027 ===== */
+(function(){
+  var el = document.querySelector('[data-cal]');
+  var html = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'].map(function(d){ return '<span class="wd">'+d+'</span>'; }).join('');
+  var first = (new Date(2027,5,1).getDay()+6)%7; // 0 = понедельник
+  for (var i=0;i<first;i++) html += '<span></span>';
+  for (var d=1; d<=30; d++) html += '<span'+(d===14?' class="mark"':'')+'>'+d+'</span>';
+  el.innerHTML = html;
+})();
+
+/* ===== Анкета =====
+   Чтобы ответы попадали в Google Таблицу: создайте Google Форму с такими же вопросами,
+   впишите её адрес (…/formResponse) и номера полей (entry.XXXXXXX).
+   Форма подключена: ответы падают в таблицу «Form_Responses». */
+var GOOGLE_FORM = {
+  action: 'https://docs.google.com/forms/d/e/1FAIpQLScZmvT5WFTC9rlPlwI4hVSxton9ihHSOEU8DSg1Qnazufiu_g/formResponse',
+  fields: {
+    name:    'entry.1138050924',
+    attend:  'entry.503789706',
+    guests:  'entry.1447024095',
+    plus:    'entry.1993266250',
+    drinks:  'entry.1269864762',
+    comment: 'entry.465733039'
+  }
+};
+(function(){
+  var form = document.querySelector('[data-rsvp]');
+  var oops = document.querySelector('[data-oops]');
+  var yesOnly = document.querySelectorAll('[data-if-yes]');
+  form.addEventListener('change', function(e){
+    if (e.target.name !== 'attend') return;
+    var no = e.target.value === 'Не смогу';
+    oops.classList.toggle('is-on', no);
+    yesOnly.forEach(function(n){ n.hidden = no; });
+  });
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var data = new FormData(form);
+    var err = document.querySelector('[data-error]');
+    var nameOk = !!(data.get('name')||'').trim(), attendOk = !!data.get('attend');
+    form.querySelector('#name').parentNode.classList.toggle('is-invalid', !nameOk);
+    form.querySelector('[name=attend]').closest('fieldset').classList.toggle('is-invalid', !attendOk);
+    if (!nameOk || !attendOk) { err.hidden = false; (nameOk ? form.querySelector('[name=attend]') : form.querySelector('#name')).focus(); return; }
+    err.hidden = true;
+    if (GOOGLE_FORM.action) {
+      var out = new FormData();
+      Object.keys(GOOGLE_FORM.fields).forEach(function(key){
+        var entry = GOOGLE_FORM.fields[key]; if (!entry) return;
+        if (data.get('attend') === 'Не смогу' && ['guests','plus','drinks'].indexOf(key) > -1) return;
+        data.getAll(key).forEach(function(v){ out.append(entry, v); });
+      });
+      fetch(GOOGLE_FORM.action, { method:'POST', mode:'no-cors', body: out }).catch(function(){});
+    }
+    form.classList.add('is-sent');
+    form.parentNode.scrollIntoView({ behavior:'smooth', block:'center' });
+  });
+})();
+</script>
+</body>
+</html>
