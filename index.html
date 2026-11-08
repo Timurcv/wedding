@@ -10,7 +10,6 @@
 <meta property="og:title" content="Тимур и Елизавета · 14 июня 2027">
 <meta property="og:description" content="Приглашаем вас на нашу свадьбу">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://timurcv.github.io/wedding/">
 <meta property="og:image" content="https://timurcv.github.io/wedding/img/og.jpg">
 <meta property="og:image:width" content="800">
 <meta property="og:image:height" content="420">
@@ -115,9 +114,6 @@
   .place__time{display:inline-block;margin:24px 0 28px;padding:10px 22px;border:1px solid rgba(169,183,156,.5);border-radius:999px;font:500 17px/1.3 var(--serif)}
   .place__time b{font-weight:600;color:var(--paper)}
 
-  .polaroid{background:var(--paper);padding:10px 10px 0;width:74%;margin:44px auto 0;transform:rotate(2.5deg);box-shadow:0 18px 30px -18px rgba(0,0,0,.6)}
-  .polaroid img{width:100%;aspect-ratio:4/3;object-fit:cover}
-  .polaroid figcaption{font:400 26px/1 var(--script);color:var(--olive);padding:10px 4px 12px}
   .branch--place{width:170px;right:-30px;bottom:-24px;opacity:.9;mix-blend-mode:normal}
 
   .cal{max-width:300px;margin:46px auto 0}
@@ -151,7 +147,7 @@
   .timeline li{display:grid;grid-template-columns:56px 34px 1fr;align-items:center;gap:0 0;padding:12px 0}
   .timeline svg{width:40px;height:40px;stroke:var(--olive);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
   .timeline .dot{width:11px;height:11px;border-radius:50%;background:var(--paper);border:1.5px solid var(--olive);justify-self:center;position:relative;z-index:1}
-  .timeline li:first-child .dot{background:var(--olive)}
+  .timeline li:first-child .dot,.timeline li:last-child .dot{background:var(--olive)}
   .timeline time{display:block;font:600 15px/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--wood)}
   .timeline b{display:block;font:500 22px/1.25 var(--serif);color:var(--forest)}
   .timeline span{display:block;font:italic 400 16px/1.35 var(--serif);color:var(--olive)}
@@ -238,7 +234,7 @@
   <p class="hero__lead">Мы женимся и будем счастливы разделить этот день с вами</p>
 
   <figure class="arch">
-    <img src="https://thb.tildacdn.com/tild3230-6462-4831-b463-313661613361/-/resize/1100x/VD-147.jpg" alt="Вечерний сад веранды «Амальфи»: дорожка к месту церемонии и гирлянды огней" fetchpriority="high">
+    <img src="img/hero.jpg" onerror="this.onerror=null;this.src='https://thb.tildacdn.com/tild3230-6462-4831-b463-313661613361/-/resize/1100x/VD-147.jpg'" alt="Вечерний сад веранды «Амальфи»: дорожка к месту церемонии и гирлянды огней" fetchpriority="high">
   </figure>
 
   <div class="date" aria-label="Понедельник, 14 июня 2027">
@@ -275,10 +271,6 @@
   <p class="place__time">Сбор гостей в <b>15:00</b></p>
   <div><a class="btn btn--light" href="https://yandex.ru/maps/?text=%D0%92%D0%B8%D0%BB%D0%BB%D0%B0%20%D0%90%D1%80%D0%BA%D0%BE%D0%B1%D0%B0%D0%BB%D0%B5%D0%BD%D0%BE%2C%20%D0%B4.%20%D0%92%D1%8B%D1%81%D0%BE%D0%BA%D0%BE%D0%B2%D0%BE%2C%20%D1%83%D0%BB.%20%D0%A6%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%2C%2021%D0%90" target="_blank" rel="noopener">Открыть карту</a></div>
 
-  <figure class="polaroid">
-    <img src="https://thb.tildacdn.com/tild6664-3438-4636-a338-636463316265/-/resize/900x/VD-108.jpg" alt="Цветочная арка в саду у веранды" loading="lazy">
-    <figcaption>свой сад у веранды</figcaption>
-  </figure>
 
   <div class="cal" aria-label="Календарь: июнь 2027, отмечено 14 июня">
     <p class="cal__month">Июнь</p>
@@ -343,11 +335,15 @@
     </li>
     <li>
       <svg viewBox="0 0 40 40"><path d="M8 34h24M10 34V24h20v10M13 24v-7h14v7"/><path d="M20 17v-5"/><path d="M20 12c-1.5-1.5-1.5-3.5 0-5 1.5 1.5 1.5 3.5 0 5z"/><path d="M10 29c3 2 6-2 10 0s7 2 10 0"/></svg>
-      <i class="dot"></i><div><time>Ближе к ночи</time><b>Свадебный торт</b><span>самая сладкая часть вечера</span></div>
+      <i class="dot"></i><div><time>Ближе к финалу</time><b>Свадебный торт</b><span>самая сладкая часть вечера</span></div>
     </li>
     <li>
       <svg viewBox="0 0 40 40"><path d="M20 6v6M20 28v6M6 20h6M28 20h6M10 10l4 4M26 26l4 4M30 10l-4 4M14 26l-4 4"/><circle cx="20" cy="20" r="3"/></svg>
-      <i class="dot"></i><div><time>До последнего гостя</time><b>Вечеринка</b><span>пока не устанут ноги</span></div>
+      <i class="dot"></i><div><time>И дальше</time><b>Вечеринка</b><span>танцы, пока не устанут ноги</span></div>
+    </li>
+    <li>
+      <svg viewBox="0 0 40 40"><path d="M27 8a13 13 0 1 0 5 21A11 11 0 0 1 27 8z"/><path d="M31 9l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/></svg>
+      <i class="dot"></i><div><time>22:30</time><b>Окончание вечера</b><span>объятия на прощание</span></div>
     </li>
   </ol>
 </section>
@@ -401,7 +397,7 @@
 <!-- 7. Ждём вас -->
 <section class="glad">
   <figure class="arch">
-    <img src="https://thb.tildacdn.com/tild3833-6161-4061-b134-633866383436/-/resize/800x/VD-101.jpg" alt="Сервировка стола: зелёные бокалы и салфетки цвета шалфея" loading="lazy">
+    <img src="img/table.jpg" onerror="this.onerror=null;this.src='https://thb.tildacdn.com/tild3833-6161-4061-b134-633866383436/-/resize/800x/VD-101.jpg'" alt="Сервировка стола: зелёные бокалы и салфетки цвета шалфея" loading="lazy">
   </figure>
   <h2 class="glad__title">Мы очень ждём вас</h2>
   <p class="text">Этот день не будет идеальным по сценарию. Он будет настоящим, потому что рядом будут самые близкие. Без вас он просто не получится таким, каким мы его придумали.</p>
